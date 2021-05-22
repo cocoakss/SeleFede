@@ -1,0 +1,36 @@
+# Importing webdriver from selenium
+from selenium import webdriver
+
+# Here chrome webdriver is used
+driver = webdriver.Chrome()
+
+# URL of the website
+url = "https://www.plataformadetransparencia.org.mx/web/guest/inicio"
+nextUrl = "https://buscador.plataformadetransparencia.org.mx/web/guest/buscadornacional?buscador="
+busqueda  = "transparencia"
+endText = "&coleccion=5"
+newpage = nextUrl+busqueda+endText
+
+#JavascriptExecutor js = (JavascriptExecutor) driver;
+#js.executeScript("document.getElementById('//id of element').setAttribute('attr', '10')");
+
+# Opening the URL
+driver.get(newpage)
+
+# Getting current URL
+get_url = driver.current_url
+
+#search_form = driver.find_element_by_id('cadenaBusqueda')
+#button_form = driver.find_element_by_id('btnBuscarInformacion')
+solicitudes = driver.find_element_by_name('solicitudes')
+element = driver.find_element_by_css_selector(".dropdow-item active [data-faucet = '39274']")
+sInfo = driver.find_element_by_id('bs-select-6-4')
+#search_form.send_keys(busqueda)
+#button_form.click()
+#solicitudes.click()
+solicitudes.click()
+sInfo.click()
+
+# Printing the URL2
+print(get_url)
+#print(sInfo)
